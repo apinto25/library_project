@@ -1,0 +1,1 @@
+from apps.author.models.author_model import Author
