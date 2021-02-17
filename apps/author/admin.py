@@ -9,5 +9,6 @@ class AuthorAdmin(admin.ModelAdmin):
         "id",
         "first_name",
         "last_name",
+        "age",
         "nationality",
     )

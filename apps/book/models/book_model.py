@@ -2,6 +2,7 @@ from django.db import models
 
 from apps.author.models.author_model import Author
 from apps.book.models.category_model import Category
+from apps.book.managers import BookManager
 
 
 class Book(models.Model):
@@ -11,6 +12,8 @@ class Book(models.Model):
     date = models.DateField()
     cover = models.ImageField(upload_to="cover")
     visits = models.PositiveIntegerField()
+
+    objects = BookManager()
 
     def __str__(self):
         return self.title

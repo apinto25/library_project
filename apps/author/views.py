@@ -10,4 +10,4 @@ class ListAuthors(ListView):
 
     def get_queryset(self):
         kword = self.request.GET.get("kword", "")
-        return Author.objects.search_authors(kword)
+        return Author.objects.search_compare_age_authors(kword)
