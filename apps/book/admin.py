@@ -7,6 +7,7 @@ from apps.book.models.category_model import Category
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = (
+        "id",
         "title",
         "category",
         "date",

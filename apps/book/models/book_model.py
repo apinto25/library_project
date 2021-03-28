@@ -6,7 +6,11 @@ from apps.book.managers import BookManager
 
 
 class Book(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name="book_category"
+    )
     authors = models.ManyToManyField(Author)
     title = models.CharField(max_length=50)
     date = models.DateField()

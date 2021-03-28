@@ -23,3 +23,22 @@ class BookManager(models.Manager):
             date__range=(initial_date, final_date)
         )
         return result
+
+    def search_books_by_category(self, category):
+        return self.filter(
+            category__name__icontains=category
+        ).order_by('title')
+
+    def add_book_author(self, book_id, author):
+        book = self.get(id=book_id)
+        book.authors.add(author)
+        return book
+
+
+class CategoryManager(models.Manager):
+    """Managers for Category model."""
+
+    def category_by_author(self, author):
+        return self.filter(
+            book_category__authors__first_name=author
+        ).distinct()

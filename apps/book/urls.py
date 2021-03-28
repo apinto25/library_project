@@ -9,4 +9,14 @@ urlpatterns = [
         views.ListBooks.as_view(),
         name="books"
     ),
+    path(
+        'books-category/',
+        views.ListBooksCategory.as_view(),
+        name="books"
+    ),
+    path(
+        'book-detail/<pk>/',
+        views.BookDetailView.as_view(),
+        name="book-detail"
+    ),
 ]
