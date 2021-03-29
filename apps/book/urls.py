@@ -10,6 +10,11 @@ urlpatterns = [
         name="books"
     ),
     path(
+        'books-trg/',
+        views.ListBooksTrg.as_view(),
+        name="books-trg"
+    ),
+    path(
         'books-category/',
         views.ListBooksCategory.as_view(),
         name="books"

@@ -19,6 +19,15 @@ class ListBooks(ListView):
             return Book.objects.search_books_by_title(kword)
 
 
+class ListBooksTrg(ListView):
+    context_object_name = "books_list"
+    template_name = "book/list.html"
+
+    def get_queryset(self):
+        kword = self.request.GET.get("kword", "")
+        return Book.objects.search_books_by_title_trg(kword)
+
+
 class ListBooksCategory(ListView):
     context_object_name = "books_list_category"
     template_name = "book/list_category.html"

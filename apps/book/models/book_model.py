@@ -19,6 +19,10 @@ class Book(models.Model):
 
     objects = BookManager()
 
+    class Meta:
+        verbose_name = 'Book'
+        verbose_name_plural = 'Books'
+        ordering = ['title', 'date']
+
     def __str__(self):
         return self.title
-    
