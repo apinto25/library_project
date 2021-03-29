@@ -1,11 +1,9 @@
 from django.db import models
 
+from apps.home.models.person_model import Person
 
-class Reader(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    nationality = models.CharField(max_length=50)
-    age = models.PositiveIntegerField(default=0)
+
+class Reader(Person):
 
     def __str__(self):
         return self.first_name + "-" + self.last_name

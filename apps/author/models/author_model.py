@@ -1,13 +1,10 @@
 from django.db import models
 
+from apps.home.models.person_model import Person
 from apps.author.managers import AuthorManager
 
 
-class Author(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    nationality = models.CharField(max_length=50)
-    age = models.PositiveIntegerField()
+class Author(Person):
 
     objects = AuthorManager()
 
