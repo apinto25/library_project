@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+
+from PIL import Image
 
 from apps.author.models.author_model import Author
 from apps.book.models.category_model import Category
@@ -27,3 +30,11 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+def optimize_image(sender, instance, **kwargs):
+    print(instance)
+    if instance.cover:
+        cover = Image.open(instance.cover.path)
+        cover.save(instance.cover.path, quality=20, optimize=True)
+
+post_save.connect(optimize_image, sender=Book)
