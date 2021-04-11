@@ -16,6 +16,7 @@ class Book(models.Model):
     date = models.DateField()
     cover = models.ImageField(upload_to="cover")
     visits = models.PositiveIntegerField()
+    stock = models.PositiveIntegerField(default=0)
 
     objects = BookManager()
 
